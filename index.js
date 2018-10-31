@@ -5,6 +5,8 @@ var expressWs = require('express-ws')(app);
 var util = require('util');
 app.use(express.static('./static'));
 var isGrouped = false;
+var questionDatas = require('./questionDatas');
+console.log(questionDatas[0])
 var actionHandles = {
     /***
      * 加载成功
@@ -212,7 +214,7 @@ var actionHandles = {
             var d2 = {
                 action:'5286',
                 data:{
-                    RealQuestionInfo:{},
+                    realQuestionInfo:questionDatas[0],
                     rightQuestionCount:0,
                     totalQuestionCount:0
                 }
@@ -228,7 +230,7 @@ var actionHandles = {
         var d2 = {
             action:'5286',
             data:{
-                RealQuestionInfo:{},
+                realQuestionInfo:questionDatas[0],
                 rightQuestionCount:0,
                 totalQuestionCount:0
             }
