@@ -15,15 +15,43 @@ var actionHandles = {
         //进入分组
         var data = {
             action:"5290",
-            data:[{
-                userID:"abc"+count++,
-                userName:"khf",
-                groupIndex:0
-            },{
-                userID:"abc"+count++,
-                userName:"khf",
-                groupIndex:0
-            }]
+            data:{
+                timeOut:120,
+                userID:'abc2',
+                groupInfo:[
+                    {
+                        groupIndex:0,
+                        userList:[
+                            {
+                                userID:"abc"+count++,
+                                userName:"abc"+count++
+                            },
+                            {
+                                userID:"abc"+count++,
+                                userName:"abc"+count++
+                            }
+                        ]
+                    },
+                    {
+                        groupIndex:1,
+                        userList:[{
+                            userID:"abc"+count++,
+                            userName:"abc"+count++
+                        }]
+                    },
+                    {
+                        groupIndex:2,
+                        userList:[{
+                            userID:"abc"+count++,
+                            userName:"abc"+count++
+                        }]
+                    },
+                    {
+                        groupIndex:0,
+                        userList:[]
+                    }
+                ]
+            }
         }
         ws.send(JSON.stringify(data))
         // 有学生进入分组
@@ -38,7 +66,7 @@ var actionHandles = {
                 action:"5283",
                 data:{
                     userID:'abc'+count++,
-                    userName:"abc",
+                    userName:"abc"+count++,
                     groupIndex:index
                 }
             }
