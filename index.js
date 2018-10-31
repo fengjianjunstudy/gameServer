@@ -49,7 +49,7 @@ var actionHandles = {
                         }]
                     },
                     {
-                        groupIndex:0,
+                        groupIndex:3,
                         userList:[]
                     }
                 ]
@@ -221,6 +221,20 @@ var actionHandles = {
             }
             ws.send(JSON.stringify(d2))
         },25000)
+
+        //游戏结束
+        setTimeout(function(){
+            var data = {
+                action:'5288',
+                data:{
+                    MVPUserID:'abc2',
+                    timeOut:30,
+                    groupAccountList:[],
+                    rankIndex:1,
+
+                }
+            }
+        },300*1000)
 
     },
     /***
