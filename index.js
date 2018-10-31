@@ -244,7 +244,7 @@ var actionHandles = {
         var d2 = {
             action:'5286',
             data:{
-                RealQuestionInfo:{},
+                RealQuestionInfo:questionDatas[0],
                 rightQuestionCount:0,
                 totalQuestionCount:0
             }
