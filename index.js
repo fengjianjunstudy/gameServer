@@ -222,19 +222,94 @@ var actionHandles = {
             ws.send(JSON.stringify(d2))
         },25000)
 
-        //游戏结束
+        //游戏结算
         setTimeout(function(){
             var data = {
                 action:'5288',
                 data:{
                     MVPUserID:'abc2',
                     timeOut:30,
-                    groupAccountList:[],
-                    rankIndex:1,
+                    accountList:[
+                        {
+                            banana:4500,
+                            totalScore:55555,
+                            groupIndex:0,
+                            rankList:[
+                                {
+                                    userID:'abc0',
+                                    rankIndex:1,
+                                    userName:'abc0',
+                                    score:300
+                                }
+                            ]
+                        },
+                        {
+                            banana:4500,
+                            totalScore:55555,
+                            groupIndex:1,
+                            rankList:[
+                                {
+                                    userID:'abc1',
+                                    rankIndex:1,
+                                    userName:'abc1',
+                                    score:300
+                                }
+                            ]
+                        },
+                        {
+                            banana:4500,
+                            totalScore:55555,
+                            groupIndex:2,
+                            rankList:[
+                                {
+                                    userID:'abc3',
+                                    rankIndex:1,
+                                    userName:'abc3',
+                                    score:300
+                                }
+                            ]
+                        },
+                        {
+                            banana:4500,
+                            totalScore:55555,
+                            groupIndex:3,
+                            rankList:[
+                                {
+                                    userID:'abc3',
+                                    rankIndex:1,
+                                    userName:'abc3',
+                                    score:300
+                                }
+                            ]
+                        }
+                        
+                    ]
 
                 }
             }
         },300*1000)
+
+
+        //游戏结束
+        setTimeout(function(){
+            var d = {
+                action:'5289',
+                data:{
+                    timeOut:30,
+                    gameName:"肥猫吃吃吃",
+                    winGropIndex:0,
+                    isMvp:0,
+                    banana:500
+
+                },
+                params:{
+                    senceID:101
+                }
+            }
+            ws.send(JSON.stringify(d))
+        },600*1000)
+
+
 
     },
     /***
@@ -255,6 +330,27 @@ var actionHandles = {
      * 学生端答题 
      */
     '1265':function(ws,msg){
+        let num = Math.random();
+        if(num>0.5){
+            var d = {
+                action:'5287',
+                data:{
+                    userID:'abc3',
+                    userName:'abc3',
+                    score:120,
+                    weight:3000,
+                    diffucity:2,
+                    groupIndex:0,
+                    groupInfo:[
+                        {
+                            rankIndex:1,
+                            userName:'abc1',
+                            score:200
+                        }
+                    ]
+                }
+            }
+        }
         var d2 = {
             action:'5286',
             data:{
@@ -277,7 +373,6 @@ app.ws('/ws', function(ws, req) {
   util.inspect(ws);
   ws.on('message', function(msg) {
     var data = JSON.parse(msg)
-    console.log(data)
     if(typeof actionHandles[data.action] == 'function'){
         actionHandles[data.action](ws,msg)
     }
