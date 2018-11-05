@@ -108,7 +108,7 @@ var actionHandles = {
             var d2 = {
                 action:'5285',
                 data:{
-                    timeOut:3,
+                    timeOut:120,
                     finishGuide:0,
                     configInfo:{
                         diffucityFood:[
@@ -287,7 +287,8 @@ var actionHandles = {
 
                 }
             }
-        },300*1000)
+            ws.send(JSON.stringify(data))
+        },40*1000)
 
 
         //游戏结束
