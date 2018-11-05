@@ -111,19 +111,19 @@ var actionHandles = {
                     timeOut:120,
                     finishGuide:0,
                     configInfo:{
-                        diffucityFood:[
+                        difficultyFood:[
                             {
-                                diffucity:2,
+                                difficulty:2,
                                 score:100,
                                 food:[0,1,2]
                             },
                             {
-                                diffucity:3,
+                                difficulty:3,
                                 score:200,
                                 food:[3,4,5]
                             },
                             {
-                                diffucity:4,
+                                difficulty:4,
                                 score:300,
                                 food:[6,7,8]
                             }
@@ -340,7 +340,7 @@ var actionHandles = {
                     userName:'abc3',
                     score:120,
                     weight:3000,
-                    diffucity:2,
+                    difficulty:2,
                     groupIndex:0,
                     groupInfo:[
                         {
